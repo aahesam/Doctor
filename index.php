@@ -133,12 +133,12 @@ $forward_chat = $update->message->forward_from_chat;
 $forward_chat_username = $update->message->forward_from_chat->username;
 $forward_chat_msg_id = $update->message->forward_from_message_id;
 $reply = $update->message->reply_to_message;
-@$shoklt = file_get_contents("data/$chat_id/shoklat.txt");
-@$penlist = file_get_contents("data/pen.txt");
+$shoklt = file_get_contents("data/$chat_id/shoklat.txt");
+$penlist = file_get_contents("data/pen.txt");
 $text = $message->text;
-@mkdir("data/$chat_id");
-@$saeed = file_get_contents("data/$chat_id/saeed.txt");
-@$list = file_get_contents("users.txt");
+mkdir("data/$chat_id");
+$saeed = file_get_contents("data/$chat_id/saeed.txt");
+$list = file_get_contents("users.txt");
 $ADMIN = "698038310";
 $channel = file_get_contents("data/channel.txt");
 $channel2 = file_get_contents("data/channel2.txt");
@@ -161,7 +161,7 @@ if ($text == "/start") {
     
             $user = file_get_contents('users.txt');
             $members = explode("\n", $user);
-            @$matnstart = file_get_contents("data/matnstart.txt");
+            $matnstart = file_get_contents("data/matnstart.txt");
             if (!in_array($from_id, $members)) {
             $add_user = file_get_contents('users.txt');
             $add_user .= $from_id . "\n";
@@ -211,11 +211,11 @@ if ($text == "/start") {
             SendMessage($chat_id, "شما قبلا در این ربات عضو شدی و نمیتونی با لینک عضویت دوستت عضو ربات بشی😑");
         } else {
             sendAction($chat_id, 'typing');
-            @$matnstart = file_get_contents("data/matnstart.txt");
-            @$sho = file_get_contents("data/$newid/shoklat.txt");
+            $matnstart = file_get_contents("data/matnstart.txt");
+            $sho = file_get_contents("data/$newid/shoklat.txt");
             $getsho = $sho + 5;
             file_put_contents("data/$newid/shoklat.txt", $getsho);
-            @$sea = file_get_contents("data/$newid/membrs.txt");
+            $sea = file_get_contents("data/$newid/membrs.txt");
             $getsea = $sea + 1;
             file_put_contents("data/$newid/membrs.txt", $getsea);
             $user = file_get_contents('users.txt');
@@ -653,7 +653,7 @@ http://telegram.me/$botids?start=$chatid",
         ]);
            } 
 		   if ($text == "زیر مجموعه های من") {
-			    @$sea = file_get_contents("data/$chat_id/membrs.txt"); 
+			    $sea = file_get_contents("data/$chat_id/membrs.txt"); 
 				sendAction($chat_id, 'typing');
         bot('sendmessage', [
             'chat_id' => $chat_id,
@@ -683,7 +683,7 @@ sendAction($chat_id, 'typing');
             ])
         ]); 
 }  if ($text == "📈 تاریخچه انتقال 📈") {
-	@$ent = file_get_contents("data/$chat_id/enteghal.txt");
+	$ent = file_get_contents("data/$chat_id/enteghal.txt");
 	sendAction($chat_id, 'typing');
         bot('sendmessage', [
             'chat_id' => $chat_id,
@@ -691,7 +691,7 @@ sendAction($chat_id, 'typing');
         ]);
    } 
    if ($text == "📉 تاریخچه دریافت 📉") {
-	@$entshoma = file_get_contents("data/$chat_id/entshoma.txt");
+	$entshoma = file_get_contents("data/$chat_id/entshoma.txt");
 	sendAction($chat_id, 'typing');
         bot('sendmessage', [
             'chat_id' => $chat_id,
@@ -699,7 +699,7 @@ sendAction($chat_id, 'typing');
         ]);
    } 
 if ($text == "🔐 مشخصات کاربری") {
-        @$sho = file_get_contents("data/$chat_id/shoklat.txt");
+        $sho = file_get_contents("data/$chat_id/shoklat.txt");
         $ent = file_get_contents("data/$chat_id/enteghal.txt");
        $tedad_bazdid = file_get_contents("data/$chat_id/bish.txt");
        $matnstart = file_get_contents("data/matnstart.txt");
@@ -708,8 +708,8 @@ if ($text == "🔐 مشخصات کاربری") {
         $entshoma = file_get_contents("data/$chat_id/entshoma.txt");
          $kolzir = file_get_contents("data/$chat_id/kolbazdidzir.txt");
          $zaman = file_get_contents("data/$chat_id/zaman.txt");
-        @$poorss = file_get_contents("data/$chat_id/poorss.txt");
-        @$sea = file_get_contents("data/$chat_id/membrs.txt");     
+        $poorss = file_get_contents("data/$chat_id/poorss.txt");
+        $sea = file_get_contents("data/$chat_id/membrs.txt");     
        sendAction($chat_id, 'typing');
         bot('sendmessage', [
             'chat_id' => $chat_id,
@@ -1204,7 +1204,7 @@ if ($text == "🔐 مشخصات کاربری") {
         }
     }
 		}		elseif ($saeed == "seen2") {
-       @$al = file_get_contents("data/$chat_id/ted.txt");
+       $al = file_get_contents("data/$chat_id/ted.txt");
         //($forward_chat_username != null or $forward_chat_username == null )
         $msg_id = bot('ForwardMessage', [
             'chat_id' => $channel,
@@ -1225,14 +1225,14 @@ if ($text == "🔐 مشخصات کاربری") {
                 ])
             ]);
 
-            @$al = file_get_contents("data/$chat_id/ted.txt");
-            @$sho = file_get_contents("data/$chat_id/shoklat.txt");
+            $al = file_get_contents("data/$chat_id/ted.txt");
+            $sho = file_get_contents("data/$chat_id/shoklat.txt");
             $getsho = $sho - $al;
             file_put_contents("data/$chat_id/shoklat.txt", $getsho);
-            @$masrafi = file_get_contents("data/$chat_id/masrafi.txt");
+            $masrafi = file_get_contents("data/$chat_id/masrafi.txt");
             $getmasrafi = $masrafi + $al;
             file_put_contents("data/$chat_id/masrafi.txt", $getmasrafi);
-            @$don = file_get_contents("data/done.txt");
+            $don = file_get_contents("data/done.txt");
             $getdon = $don + 1;
             file_put_contents("data/done.txt", $getdon);
             file_put_contents("ads/cont/$msg_id.txt", $al);
@@ -1261,8 +1261,8 @@ if ($text == "🔐 مشخصات کاربری") {
     if ($data == "ok") {
         $message_id12 = $update->callback_query->message->reply_to_message->message_id;
         $fromm_id = $update->callback_query->from->id;
-        @$ue = file_get_contents("ads/user/$message_id12.txt");
-        @$se = file_get_contents("ads/seen/$message_id12.txt");
+        $ue = file_get_contents("ads/user/$message_id12.txt");
+        $se = file_get_contents("ads/seen/$message_id12.txt");
         if (strpos($ue, "$fromm_id") !== false) {
             bot('answercallbackquery', [
                 'callback_query_id' => $update->callback_query->id,
@@ -1279,11 +1279,11 @@ if ($text == "🔐 مشخصات کاربری") {
             }
             $getse = $se + 1;
             file_put_contents("ads/seen/$message_id12.txt", $getse);
-            @$sho = file_get_contents("data/$fromm_id/shoklat.txt");
+            $sho = file_get_contents("data/$fromm_id/shoklat.txt");
             $getsho = $sho + 1;
             file_put_contents("data/$fromm_id/shoklat.txt", $getsho);
             $Inviter = file_get_contents("data/$fromm_id/invite.txt");
-            @$shop = file_get_contents("data/$Inviter/shoklat.txt");         
+            $shop = file_get_contents("data/$Inviter/shoklat.txt");         
               $sendsho = $shop + 1.2;
             file_put_contents("data/$Inviter/shoklat.txt", $sendsho);
            $Inviterr = file_get_contents("data/$Inviter/poorss.txt");
@@ -1304,12 +1304,12 @@ if ($text == "🔐 مشخصات کاربری") {
 
         //date_default_timezone_set('Asia/Tehran');
         $date = date('Ymd');
-        @$gettime = file_get_contents("data/$fromm_id/date_tedad.txt");
+        $gettime = file_get_contents("data/$fromm_id/date_tedad.txt");
         if ($gettime != $date) {
             file_put_contents("data/$fromm_id/date_tedad.txt",$date);
             file_put_contents("data/$fromm_id/bish.txt", "1");
         } else {
-            @$batar = file_get_contents("data/$fromm_id/bish.txt");
+            $batar = file_get_contents("data/$fromm_id/bish.txt");
             $getad = $batar + 1;
             file_put_contents("data/$fromm_id/bish.txt", $getad);
             }
@@ -1328,10 +1328,10 @@ if ($text == "🔐 مشخصات کاربری") {
  بازدیدهای تبلیغ شما با کد پیگیری $message_id12  با موفقیت تکمیل شد. در صورت تمایل به ثبت تبلیغ جدید می توانید از قسمت 📝 ثبت تبلیغ موجود در صفحه اصلی ربات اقدام نمایید.",
 
         ]);
-            @$don = file_get_contents("data/done.txt");
+            $don = file_get_contents("data/done.txt");
             $getdon = $don - 1;
             file_put_contents("data/done.txt", $getdon);
-            @$enn = file_get_contents("data/enf.txt");
+            $enn = file_get_contents("data/enf.txt");
             $getenf = $enn + 1;
             file_put_contents("data/enf.txt", $getenf);
             $de = $message_id12 + 1;
@@ -1616,8 +1616,8 @@ $mosak3 = file_get_contents("data/$member3/membrs.txt");
         $user = file_get_contents("users.txt");
         $member_id = explode("\n", $user);
         $member_count = count($member_id) - 1;
-        @$don = file_get_contents("data/done.txt");
-        @$enf = file_get_contents("data/enf.txt");
+        $don = file_get_contents("data/done.txt");
+        $enf = file_get_contents("data/enf.txt");
         bot('answercallbackquery', [
             'callback_query_id' => $update->callback_query->id,
             'text' => "تعداد ممبر ها : $member_count
