@@ -12,13 +12,13 @@ ob_start();
 include("jdf.php");
 
 $API_KEY = '570468632:AAEXl1eqKPtzozNDvZNkdK0Le8Oc2P3W-Sw';
-$GetINFObot = json_decode(file_get_contents("https://api.telegram.org/bot".$API_KEY."/getMe"));
+$GetINFObot = json_decode(file_get_contents("https://api.telegram.org/bot"$API_KEY"/getMe"));
 $botids = $GetINFObot->result->username;
 ##------------------------------##
 define('API_KEY', $API_KEY);
 function bot($method, $datas = [])
 {
-    $url = "https://api.telegram.org/bot" . API_KEY . "/" . $method;
+    $url = "https://api.telegram.org/bot"$API_KEY"/"$method;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
