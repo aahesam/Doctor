@@ -1,7 +1,7 @@
 <?php
 ob_start();
 
-define('API_KEY',"token"); //توکن ربات را در اینجا قرار دهید
+define('API_KEY',"696846250:AAGAWlQgjtwVNQfNURS-SzC88PvL_9g2LZs"); 
  
 function bot($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -17,7 +17,7 @@ function bot($method,$datas=[]){
     }
 }
 $up=json_decode(file_get_contents('php://input'));
-$sudo= 00000000; // آیدی عددی مدیر ربات را در اینجا وارد کنید
+$sudo= 698038310; 
 $caption=$up->message->caption;
 $fwd_id=$up->message->reply_to_message->forward_from->id;
 $first_name=$up->message->from->first_name;
