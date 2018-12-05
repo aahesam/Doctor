@@ -6,9 +6,9 @@
 
 @Monster_Source
 */
-$MainBotToken = '691161787:AAEx1hx8fsF7M5WnLwbt8CnysicT-fdMJlM'; // توکن ربات
-$Notices_Channel_Id = '-1001128336775'; // ایدی عددی کانال شما
-$Bot_Channel_Username = '@khabar_arz'; // یوزرنیم چنل
+$MainBotToken = '799791740:AAHOOWJW8zNnX5rvg3prdI82QpKyZphzLw0'; // توکن ربات
+$Notices_Channel_Id = '-1001192028814'; // ایدی عددی کانال شما
+$Bot_Channel_Username = '@tab_khodro'; // یوزرنیم چنل
 $Admin_User_Id = '698038310'; // ایدی عددی ادمین
 define('API_KEY',$MainBotToken);
 ini_set("log_errors","off");
@@ -39,7 +39,7 @@ GoldDev('sendMessage',[
 'text'=>"به کانال تنظیم شده ارسال شد.",
 'parse_mode'=>"HTML",
 ]);
-$Get = json_decode(file_get_contents("https://golddev.ir/Arz/api.php"),true);
+$Get = json_decode(file_get_contents("https://khabar-arz.ml/Arz/api.php"),true);
 for ($i=0; $i <= 29; $i++ ){
 $name = $Get["$i"]['name'];
 $BTNS[] = [['text'=>"💰 $name 💰",'callback_data'=>"$i"]];
@@ -56,7 +56,7 @@ GoldDev('sendMessage',[
 ]);
 }
 if($data){
-$Get = json_decode(file_get_contents("https://golddev.ir/Arz/api.php"),true);
+$Get = json_decode(file_get_contents("https://khabar-arz.ml/Arz/api.php"),true);
 $name = $Get["$data"]['name'];
 $price = $Get["$data"]['price'];
 GoldDev('answercallbackquery',[
@@ -66,7 +66,7 @@ GoldDev('answercallbackquery',[
 ]);
 }
 if($_GET['cron'] !== null){
-$Get = json_decode(file_get_contents("https://golddev.ir/Arz/api.php"),true);
+$Get = json_decode(file_get_contents("https://khabar-arz.ml/Arz/api.php"),true);
 $msg = "";
 for($z = 0;$z <= 29;$z++){
 $name = $Get["$z"]['name'];
