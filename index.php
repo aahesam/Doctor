@@ -2,7 +2,8 @@
  //@Monster_Source
 ini_set("log_errors" , "off");
 ob_start();
-define('API_KEY','451422153:AAHMrFSqRVSCRTpvLQnD3AMg7XrTs2W6QP4');
+define('API_KEY','745392304:AAGKRU1cI8LjYw2PR3PHpp2efpyiXBRp5nQ
+');
 //-------------------------------
 function bot($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -30,8 +31,11 @@ $last_name = $message->from->last_name;
 $forward_chat_username = $update->message->forward_from_chat->username;
 $forward_chat_msg_id = $update->message->forward_from_message_id;
 $username = $message->from->username;
-$admin = 422823081;
-$token = "451422153:AAHMrFSqRVSCRTpvLQnD3AMg7XrTs2W6QP4";
+$channel = '@Dandeeh5';
+$admin = "698038310";
+$token = "745392304:AAGKRU1cI8LjYw2PR3PHpp2efpyiXBRp5nQ
+";
+$chid = "https://t.me/Dandeeh5";
 $data = $update->callback_query->data;
 $reply = $update->message->reply_to_message;
 $step = file_get_contents("data/$chat_id/step.txt");
@@ -54,7 +58,16 @@ $time=$jd_dt['time_en'];
 $dt = "http://api.mostafa-am.ir/date-time/";
 $jd_dt = json_decode(file_get_contents($dt),true);
 $date=$jd_dt['date_fa_num_en'];
+$tch = bot('getChatMember',[
+    'chat_id'=>$Channel,
+    'user_id'=>$from_id
+])->result->status;
 //----------------------
+$join = json_encode(['inline_keyboard'=>[
+    [['text'=>"ورود به کانال",'url'=>"$chid"]
+],
+],
+]);
 $button_tiid = json_encode(['keyboard'=>[
 [['text'=>'تایید حساب ویژه 💫','request_contact'=>true]],
 ],'resize_keyboard'=>true]);
@@ -130,6 +143,9 @@ $banlis = file_get_contents('data/ban.txt');
             file_put_contents('data/ban.txt', $add_block);
             }
 
+} if ($tch != 'member' && $tch != 'creator' && $tch != 'ADMINistrator') {
+    sendMessage($chat_id,"برای استفاده از این ربات حتما باید در کانال زیر عضو شوید
+	پس از عضویت در کانال زیر,به ربات بازگردید و /start را لمس کنید","Html",true,$join);
 }
 	elseif($text1=="/start" or $text1=="بازگشت 🔙"){
     if (file_exists("data/$from_id/step.txt")) {
@@ -137,7 +153,7 @@ $banlis = file_get_contents('data/ban.txt');
 'chat_id' => $chat_id,
 'text' => "سلام 😉 [$first_name](tg://user?id=$chat_id)
   
-به ربات شارژگرام خوش امدید🌹
+به ربات شارژکده خوش امدید🌹
 
 از طریق این ربات میتوانید با دعوت دوستانتان به ربات زیر مجموعه گیری کنید و به وسیله زیر مجموعه ها شارژ رایگان دریافت کنید😍
 
@@ -194,7 +210,7 @@ elseif($update->message->contact and $number == null){
 'chat_id' => $chat_id,
 'text' => "سلام 😉 [$first_name](tg://user?id=$chat_id)
   
-به ربات شارژگرام خوش امدید🌹
+به ربات شارژکده خوش امدید🌹
 
 از طریق این ربات میتوانید با دعوت دوستانتان به ربات زیر مجموعه گیری کنید و به وسیله زیر مجموعه ها شارژ رایگان دریافت کنید😍
 
@@ -343,11 +359,11 @@ if ($text1 == "🔗 لینک دعوت") {
         'photo'=>"http://s8.picofile.com/file/8323321892/IMG_20180409_172842_040.jpg",
         'caption'=>"ربات شارژ رایگان 📣 شارژ رایگان 📣
   
-🎉 با ربات شارژگرام میتونی یک عامله شارژ رایگان دریافت کنی با دعوت دوستات به ربات این عالیه 🎉
+🎉 با ربات شارژکده میتونی یک عامله شارژ رایگان دریافت کنی با دعوت دوستات به ربات این عالیه 🎉
 
 🔗 لینک ورود به ربات :
 
-t.me/SharjGramRBot?start=$chat_id",
+t.me/Sharj_kadehbot?start=$chat_id",
         ]);
 	bot('sendmessage', [
             'chat_id' => $chat_id,
