@@ -6,7 +6,7 @@ channels : @@EliyaTeaM,@@EliyaTeaM
 */
 $infor=json_decode(file_get_contents("config.json"));
 
-define('API_KEY',"**TOKEN**");
+define('API_KEY',"684701234:AAFsgHKQqyhuPALAscxWKyAsXkd_YA4_Qm8");
  
 function bot($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -22,7 +22,7 @@ function bot($method,$datas=[]){
     }
 }
 $up=json_decode(file_get_contents('php://input'));
-$sudo=**ADMIN**;
+$sudo="698038310";
 $caption=$up->message->caption;
 $fwd_id=$up->message->reply_to_message->forward_from->id;
 $first_name=$up->message->from->first_name;
@@ -55,10 +55,7 @@ if(!file_exists("dasturat.json")){
   file_put_contents("dasturat.json",json_encode(["empty"=>"yes"]));
 }
 if(!file_exists("start.txt")){
-  file_put_contents("start.txt","باسلام.خوش آمدید.\nلطفا پیام خود را ارسال نمایید.
-  🤖ربات خود را بسازید😃👇
-🆔 @CrPv_RooBot
-✊️با سرور قوی و پرسرعت💪
+  file_put_contents("start.txt","باسلام.خوش آمدید.\nلطفا پیام خود را ارسال نمایید
 ");
 }
 if(!file_exists("block.txt")){
