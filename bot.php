@@ -1,6 +1,6 @@
 <?php
 ob_start();
-define('API_KEY','696023605:AAGnJUfkYfCAq9INuSdKkNqxFxVqWuSiNMA');//توکنتو بزارید
+define('API_KEY','799206667:AAG0w_lj7twmjnjfjh68qnhNgvUPz4CgFlY');//توکنتو بزارید
 //============= Functions ===============
 function bot($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -55,9 +55,9 @@ function save($filename, $data)
     fwrite($file, $data);
     fclose($file);
 }//============== keyboard ==============
-$Botid = 'free0netbot';//آیدی رباتتون
-$Channel = '@LINE_TM';//آیدی کانالتون
-$chid = "https://t.me/LINE_TM";//آیدی کانالتون
+$Botid = '@freenet0bot';//آیدی رباتتون
+$Channel = '@Dandeeh5';//آیدی کانالتون
+$chid = "https://t.me/Dandeeh5";//آیدی کانالتون
 $menu = json_encode(['keyboard'=>[
 [['text'=>'راهنما و وضعیت من'],['text'=>'تعداد ممبر های من']],
 [['text'=>'لینک شخصی من']],
@@ -98,14 +98,14 @@ $member = file_get_contents("data/$from_id/member.txt");
 $number = file_get_contents("data/$from_id/number.txt");
 $members = file_get_contents('Member.txt');
 $memlist = explode("\n", $members);
-$ADMIN = "550250019";//آیدی ادمین
+$ADMIN = "698038310";//آیدی ادمین
 $tch = bot('getChatMember',[
     'chat_id'=>$Channel,
     'user_id'=>$from_id
 ])->result->status;
 if ($tch != 'member' && $tch != 'creator' && $tch != 'ADMINistrator') {
     sendMessage($chat_id,"برای استفاده از این ربات حتما باید در کانال زیر عضو شوید
-	پس از عضویت در کانال زیر,به ربات بازگردید و /start را لمس کنید","Html",false,$join);
+	پس از عضویت در کانال زیر,به ربات بازگردید و /start را لمس کنید","Html",true,$join);
 }
 //======================= Start Source ======================
 elseif($text =="/start"){
@@ -224,7 +224,7 @@ sendMessage($chat_id,"شما باید 15 نفر رو دعوت کنید تا بت
 elseif($text == "لینک شخصی من" || $text == "/link"){
 sendMessage($chat_id,"سریع تو ربات زیر ثبت نام کن و جز مشترک هر اوپراتوری که هستی، 25 گیگ اینترنت سه ماهه هدیه بگیر!
 
-https://telegram.me/free0netbot?start=$from_id
+https://telegram.me/freenet0bot?start=$from_id
 
 فرصت محدوده، عجله کن 🌟");
 sendMessage($chat_id,"بنر بالا رو برای 15 نفر بفرست تا با اون عضو ربات بشن، بعدش بلافاصله ربات برات فعال میشه 😉👆","html",false,$menu);
