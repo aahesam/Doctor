@@ -101,7 +101,7 @@ while (true) {
   require 'plugin.php';
                 
                 } catch (\danog\MadelineProto\RPCErrorException $e) {
-                    $MadelineProto->messages->sendMessage(['peer' => "ID SHOMA", 'message' => $e->getCode().': '.$e->getMessage().PHP_EOL.$e->getTraceAsString()]);
+                    $MadelineProto->messages->sendMessage(['peer' => "698038310", 'message' => $e->getCode().': '.$e->getMessage().PHP_EOL.$e->getTraceAsString()]);
                 }
          
         }
