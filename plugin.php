@@ -1,6 +1,6 @@
 <?php
  $admins = [
-  ID SHOMA
+  68038310,
 ];
 $listplugins = [
   "ping"
