@@ -1,5 +1,5 @@
 <?php
-define('API_KEY','توکن ربات شما');
+define('API_KEY','637271484:AAEv2GBi-vMLKDSw_mxJGbZIMi1K8xbvkSQ');
 //----######------
 function makereq($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -53,7 +53,7 @@ $textmessage = isset($update->message->text)?$update->message->text:'';
 $txtmsg = $update->message->text;
 $reply = $update->message->reply_to_message->forward_from->id;
 $stickerid = $update->message->reply_to_message->sticker->file_id;
-$admin = 185610082;
+$admin = 698038310;
 $skayvaiker = file_get_contents("data/$chat_id/botmars.txt");
 $time= file_get_contents("http://api.roonx.com/date-time/?roonx=time");
 $date= file_get_contents("http://api.roonx.com/date-time/?roonx=date");
@@ -113,7 +113,7 @@ if(isset($update->callback_query)){
             'reply_markup'=>json_encode([
                 'inline_keyboard'=>[
                     [
-                        ['text'=>"به کانال ما بپیوندید",'url'=>"https://telegram.me/SsSTeaM"]
+                        ['text'=>"به کانال ما بپیوندید",'url'=>"https://telegram.me/solar_adv"]
                     ]
                 ]
             ])
@@ -130,7 +130,7 @@ if(isset($update->callback_query)){
             'reply_markup'=>json_encode([
                 'inline_keyboard'=>[
                     [
-                        ['text'=>"به کانال ما بپیوندید",'url'=>"https://telegram.me/SssTeaM"]
+                        ['text'=>"به کانال ما بپیوندید",'url'=>"https://telegram.me/Solar_adv"]
                     ]
                 ]
             ])
@@ -226,7 +226,7 @@ $token = $textmessage ;
 		$source = file_get_contents("bot/index.php");
 		$source = str_replace("[*BOTTOKEN*]",$token,$source);
 		$source = str_replace("123",$from_id,$source);
-		save("bots/$un/index.php",$source);		file_get_contents("https://api.telegram.org/bot".$token."/setwebhook?url=https://REZA48487.000webhostapp.com/@sssteam/bots/$un/index.php");
+		save("bots/$un/index.php",$source);		file_get_contents("https://api.telegram.org/bot".$token."/setwebhook?url=https://aaahesam.000webhostapp.com/haji/bots/$un/index.php");
 
 var_dump(makereq('sendMessage',[
         	'chat_id'=>$update->message->chat->id,
@@ -260,7 +260,7 @@ var_dump(makereq('sendMessage',[
 		mkdir("bots/$un/data/$from_id");
    save("data/$from_id/botmars.txt","$un");
 		save("bots/$un/data/$from_id/reza.txt","jjjjj");
-			file_get_contents("https://api.telegram.org/bot".$token."/setwebhook?url=https://ReZa48487.000webhostapp.com/@sssteam/bots/$un/index.php");
+			file_get_contents("https://api.telegram.org/bot".$token."/setwebhook?url=https://aaahesam.000webhostapp.com/haji/bots/$un/index.php");
 		
 
 var_dump(makereq('sendMessage',[
