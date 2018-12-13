@@ -1,7 +1,7 @@
 <?php
 
-define('API_KEY','486510954:AAH81BElkVarnokeGU4EpQL7MRdpHayBTk4');
-$admin = 343447056;
+define('API_KEY','745392304:AAGKRU1cI8LjYw2PR3PHpp2efpyiXBRp5nQ');
+$admin = 698038310;
 $admin2 = file_get_contents("data/admin2.txt");
 function makereq($method,$datas=[])
     {$url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -45,22 +45,22 @@ $msg_id = $update->message->message_id;
 $name = $update->message->from->first_name;
 $username = $update->message->from->username;
 $textmessage = isset($update->message->text)?$update->message->text:'';
-$usm = file_get_contents("data/users.txt");
-$spep = file_get_contents("data/user/$chat_id/spep.txt");
-$step = file_get_contents("step.txt");
-$members = file_get_contents('data/users.txt');
-$ban = file_get_contents('banlist.txt');
-$vaze = file_get_contents("data/user/$chat_id/lock.txt");
-$trew = file_get_contents("lock/idkanal.txt");
-$tmaew = file_get_contents("lock/matnkanal.txt");
-$chanell = '@phpyar';
-$lart = file_get_contents('lock/vaze.txt');
-$kanalp = file_get_contents('lock/vazekanal.txt');
-$truechannel = json_decode(file_get_contents("https://api.telegram.org/bot486510954:AAH81BElkVarnokeGU4EpQL7MRdpHayBTk4/getChatMember?chat_id=$trew&user_id=".$from_id));
+@$usm = file_get_contents("data/users.txt");
+@$spep = file_get_contents("data/user/$chat_id/spep.txt");
+@$step = file_get_contents("step.txt");
+@$members = file_get_contents('data/users.txt');
+@$ban = file_get_contents('banlist.txt');
+@$vaze = file_get_contents("data/user/$chat_id/lock.txt");
+@$trew = file_get_contents("lock/idkanal.txt");
+@$tmaew = file_get_contents("lock/matnkanal.txt");
+$chanell = '@solar_click';
+@$lart = file_get_contents('lock/vaze.txt');
+@$kanalp = file_get_contents('lock/vazekanal.txt');
+$truechannel = json_decode(file_get_contents("https://api.telegram.org/bot745392304:AAGKRU1cI8LjYw2PR3PHpp2efpyiXBRp5nQ/getChatMember?chat_id=$trew&user_id=".$from_id));
 $tch = $truechannel->result->status;
 
 
- $stre = file_get_contents("data/start.txt");
+@$stre = file_get_contents("data/start.txt");
 function SendMessage($ChatId, $TextMsg)
 {
 makereq('sendMessage',[
@@ -149,7 +149,7 @@ else{var_dump(makereq('editMessageText',
 'message_id'=>$message_id,
 'text'=>"خطا",
 'reply_markup'=>json_encode(['inline_keyboard'=>
-[[['text'=>"به کانال ما بپیوندید",'url'=>"https://telegram.me/phpyar"]]]
+[[['text'=>"به کانال ما بپیوندید",'url'=>"https://telegram.me/solar_click"]]]
                             ])
 ]                    )
              );
@@ -190,7 +190,7 @@ $ttx = explode("\n",$bory);
  for ($po=0;$po<=count($ttx);$po++){
     $name = $ttx["$po"];
     $rt[] = [['text'=>"$name"]]; }
-$sttart = file_get_contents('sfart.txt');
+@$sttart = file_get_contents('sfart.txt');
 if ($lart == "ok" && $vaze == "")
 {SendMessage($chat_id,"ربات توسط ادمین قفل شده
 با ارسال /on
@@ -200,7 +200,7 @@ return;
 }
 
 if ($sttart == "")
-{SendMessage($chat_id,"کاربر گرامی این سرویس توسط @phpyar طراحی شده
+{SendMessage($chat_id,"کاربر گرامی این سرویس توسط @solar_click طراحی شده
 برای نمایش دکمه های ربات وارد پنل ادمین شوید و از بخش مدیریت متن ها -متن استارت
 را تعیین کنید
 برای اینکار وارد پنل ادمین شوید 
@@ -301,11 +301,11 @@ elseif ($textmessage == 'اضافه کردن کلمه' && $from_id == $admin | $
 	elseif ($step == 'set answer') {
 		save("step.txt","none");
 		
-		$last = file_get_contents("last_word.txt");
-			$myfile2 = fopen("data/wordlist.txt", "a") or die("Unable to open file!");	
+		@$last = file_get_contents("last_word.txt");
+			@$myfile2 = fopen("data/wordlist.txt", "a") or die("Unable to open file!");	
 			fwrite($myfile2, "$last\n");
 			fclose($myfile2);
-			save("data/words/$last.txt","$textmessage");
+		        save("data/words/$last.txt","$textmessage");
 		
 		var_dump(makereq('sendMessage',[
         	'chat_id'=>$update->message->chat->id,
@@ -375,8 +375,8 @@ elseif ($textmessage == 'اضافه کردن کلمه' && $from_id == $admin | $
 	elseif ($step == 'set rsslink') {
 		save("step.txt","none");
 		
-		$last = file_get_contents("last_btn.txt");
-			$myfile2 = fopen("data/btnlist.txt", "a") or die("Unable to open file!");	
+		@$last = file_get_contents("last_btn.txt");
+			@$myfile2 = fopen("data/btnlist.txt", "a") or die("Unable to open file!");	
 			fwrite($myfile2, "$last\n");
 			fclose($myfile2);
 			save("data/rss/$last.txt","$textmessage");
@@ -399,7 +399,7 @@ elseif ($textmessage == 'اضافه کردن کلمه' && $from_id == $admin | $
 			
 	}
 	elseif (file_exists("data/rss/$textmessage.txt")) {
-		$jij = file_get_contents("data/rss/$textmessage.txt");
+		@$jij = file_get_contents("data/rss/$textmessage.txt");
 		$content = file_get_contents("$jij");
     $x = new SimpleXmlElement($content);
       foreach($x->channel->item as $entry){
@@ -411,7 +411,7 @@ SendMessage($chat_id,"[$t]($l)");
 	
 	elseif ($textmessage == 'مشاهده کلمه ها' && $from_id == $admin | $from_id == $admin2)
 {
-$key = file_get_contents("data/wordlist.txt");
+@$key = file_get_contents("data/wordlist.txt");
 $ex = explode("\n",$key);
  $t=[[['text'=>"منوی اصلی"]]];
  for ($i=0;$i<=count($ex);$i++){
@@ -534,8 +534,8 @@ elseif ($textmessage == 'دکمه متنی' && $from_id == $admin | $from_id == 
 	elseif ($step == 'set txtans') {
 		save("step.txt","none");
 		
-		$last = file_get_contents("last_btn.txt");
-			$myfile2 = fopen("data/btnlist.txt", "a") or die("Unable to open file!");	
+		@$last = file_get_contents("last_btn.txt");
+			@$myfile2 = fopen("data/btnlist.txt", "a") or die("Unable to open file!");	
 			fwrite($myfile2, "$last\n");
 			fclose($myfile2);
 			save("data/btn/$last.txt","$textmessage");
@@ -605,8 +605,8 @@ elseif ($textmessage == 'دکمه متنی' && $from_id == $admin | $from_id == 
 	elseif ($step == 'set pxtans') {
 		save("step.txt","none");
 		
-		$last = file_get_contents("last_btn.txt");
-			$myfile2 = fopen("data/btnlist.txt", "a") or die("Unable to open file!");	
+		@$last = file_get_contents("last_btn.txt");
+			@$myfile2 = fopen("data/btnlist.txt", "a") or die("Unable to open file!");	
 			fwrite($myfile2, "$last\n");
 			fclose($myfile2);
 			save("data/btnphoto/$last.txt","$textmessage");
@@ -737,8 +737,8 @@ elseif ($textmessage == 'دکمه متنی' && $from_id == $admin | $from_id == 
 	elseif ($step == 'set aswer') {
 		save("step.txt","none");
 		
-		$last = file_get_contents("last_word.txt");
-			$myfile2 = fopen("data/wordlist.txt", "a") or die("Unable to open file!");	
+		@$last = file_get_contents("last_word.txt");
+			@$myfile2 = fopen("data/wordlist.txt", "a") or die("Unable to open file!");	
 			fwrite($myfile2, "$last\n");
 			fclose($myfile2);
 			save("data/wrds/$last.txt","$textmessage");
@@ -808,7 +808,7 @@ if ($lart == "ok" && $vaze == "")
 return;
 }
 if ($sttart == "")
-{SendMessage($chat_id,"کاربر گرامی این سرویس توسط @phpyar طراحی شده
+{SendMessage($chat_id,"کاربر گرامی این سرویس توسط @solar_click طراحی شده
 برای نمایش دکمه های ربات وارد پنل ادمین شوید و از بخش مدیریت متن ها -متن استارت
 را تعیین کنید
 برای اینکار وارد پنل ادمین شوید 
@@ -832,7 +832,7 @@ var_dump(makereq('sendMessage',[
  
 	elseif ($textmessage == 'مشاهده دکمه ها' && $from_id == $admin | $from_id == $admin2)
 {
-$key = file_get_contents("data/btnlist.txt");
+@$key = file_get_contents("data/btnlist.txt");
 $ex = explode("\n",$key);
  $t=[[['text'=>"منوی اصلی"]]];
  for ($i=0;$i<=count($ex);$i++){
