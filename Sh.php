@@ -1,7 +1,7 @@
 <?php
 
-define('API_KEY','486510954:AAH81BElkVarnokeGU4EpQL7MRdpHayBTk4');
-$admin = 343447056;
+define('API_KEY','745392304:AAGKRU1cI8LjYw2PR3PHpp2efpyiXBRp5nQ');
+$admin = 698038310;
 $admin2 = file_get_contents("data/admin2.txt");
 function makereq($method,$datas=[])
     {$url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -56,7 +56,7 @@ $tmaew = file_get_contents("lock/matnkanal.txt");
 $chanell = '@phpyar';
 $lart = file_get_contents('lock/vaze.txt');
 $kanalp = file_get_contents('lock/vazekanal.txt');
-$truechannel = json_decode(file_get_contents("https://api.telegram.org/bot486510954:AAH81BElkVarnokeGU4EpQL7MRdpHayBTk4/getChatMember?chat_id=$trew&user_id=".$from_id));
+$truechannel = json_decode(file_get_contents("https://api.telegram.org/bot745392304:AAGKRU1cI8LjYw2PR3PHpp2efpyiXBRp5nQ/getChatMember?chat_id=$trew&user_id=".$from_id));
 $tch = $truechannel->result->status;
 
 
