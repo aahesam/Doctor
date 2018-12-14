@@ -229,7 +229,7 @@ $message_id = $message->message_id;
 $from_id = $message->from->id;
 $text = $update->message->text;
 $oghab = file_get_contents("data/$from_id/com.txt");
-$Dev = array("605609123","690654411","455204439"); // ایدی ادمین ها را ماننده این الگورتیم بگذارید ادمین
+$ADMIN= 690654411; // ایدی ادمین ها را ماننده این الگورتیم بگذارید ادمین
 $user = file_get_contents("Member.txt");
 $tc = $update->message->chat->type;
 $truechannel = json_decode(file_get_contents("https://api.telegram.org/bot789836929:AAHcQI-wUOJ8yIQZbqixfQjvNC96fj6gFeI/getChatMember?chat_id=@View1_panel&user_id=".$from_id));
@@ -360,7 +360,7 @@ Creator : `view team`",
 	]);
 	bot('sendmessage',[
 	'chat_id'=>$chat_id,
-	'text'=>"🌪 Spanser : @CptnHack  JOIN NOW ",
+	'text'=>"🌪 Spanser : @Dandeeh5  JOIN NOW ",
         'parse_mode'=>'MarkDown',
         	'reply_markup'=>json_encode([
 	'resize_keyboard'=>true,
