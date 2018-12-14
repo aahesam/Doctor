@@ -228,7 +228,7 @@ mkdir("data/$from_id");
 $message_id = $message->message_id;
 $from_id = $message->from->id;
 $text = $update->message->text;
-$oghab = file_get_contents("data/$from_id/com.txt");
+@$oghab = file_get_contents("data/$from_id/com.txt");
 $ADMIN= 690654411; // ایدی ادمین ها را ماننده این الگورتیم بگذارید ادمین
 $user = file_get_contents("Member.txt");
 $tc = $update->message->chat->type;
