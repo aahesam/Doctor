@@ -380,9 +380,9 @@ Creator : `view team`",
 	SendMessage($chat_id,"🌹کاربرگرامی،
 برای حمایت از ما و بازشدن قفل ربات لطفا در کانال ما عضو شوید👇
 
-🆔 : @CptnHack
+🆔 : @view1_panel
 
-🆔 : @View1_panel
+🆔 : @CptnHack
 
 🆔 : @Dandeeh5
 
@@ -548,7 +548,7 @@ if($text == "❕ راهنما"){
 	}
 /*
 SODU : view team
-CHANNEL : @view_anell
+CHANNEL : @view1_panel
 */
 	if($text == "🔨 اتو ویو"){
 		SendMessage($chat_id,"
