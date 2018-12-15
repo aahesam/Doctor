@@ -1,8 +1,8 @@
 <?php
 ini_set('error_logs','off');
 #fill outs
-$token='';
-$admin='';
+$token='768152343:AAH3JLurn-DhQPZRv7YRTOSkluK6q8dgtzs';
+$admin='698038310';
 #defines
 define('API_KEY',$token);
 define('ADMIN',$admin);
