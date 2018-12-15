@@ -26,11 +26,11 @@ if (!in_array($chat_id, $members)) {
     file_put_contents('Member.txt', $add_user);
 }
 
-$admin = array("ADMIN ID 1","ADMIN ID 2");
-$channel_username1 = "آیدی کانال بدون @";
+$admin = [*[*ADMIN*]*];
+$channel_username1 = "test_inbar";
 $channel2 = "دست نزن";
 
-define("TOKEN","توکن ربات");
+define("TOKEN","[*[*TOKEN*]*]");
 function bridge($method, $datas=[])
 {
     $url = "https://api.telegram.org/bot" . TOKEN . "/" . $method;
