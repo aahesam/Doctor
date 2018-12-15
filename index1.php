@@ -5,7 +5,7 @@ CHANNEL : @view_panell
 */
 unlink(error_log);
 $load = sys_getloadavg();
-$API_KEY = "789836929:AAHcQI-wUOJ8yIQZbqixfQjvNC96fj6gFeI";
+$API_KEY = "[*[*TOKEN*]*]";
 define('API_KEY',$API_KEY);
 
 function bot($method,$datas=[]){
@@ -229,10 +229,10 @@ $message_id = $message->message_id;
 $from_id = $message->from->id;
 $text = $update->message->text;
 @$oghab = file_get_contents("data/$from_id/com.txt");
-$ADMIN= 690654411; // ایدی ادمین ها را ماننده این الگورتیم بگذارید ادمین
+$ADMIN= "[*[*ADMIN*]*]"; // ایدی ادمین ها را ماننده این الگورتیم بگذارید ادمین
 $user = file_get_contents("Member.txt");
 $tc = $update->message->chat->type;
-$truechannel = json_decode(file_get_contents("https://api.telegram.org/bot789836929:AAHcQI-wUOJ8yIQZbqixfQjvNC96fj6gFeI/getChatMember?chat_id=@View1_panel&user_id=".$from_id));
+$truechannel = json_decode(file_get_contents("https://api.telegram.org/bot789836929:AAHcQI-wUOJ8yIQZbqixfQjvNC96fj6gFeI/getChatMember?chat_id=$ch&user_id=".$from_id));
 $tch = $truechannel->result->status;
 $first = $update->message->from->first_name;
 $tedad = file_get_contents('data/'.$from_id."/golds.txt");
@@ -240,7 +240,8 @@ $tedad = file_get_contents('data/'.$from_id."/golds.txt");
 @$wait = file_get_contents("data/$from_id/wait.txt");
 @$coin = file_get_contents("data/$from_id/golds.txt");
 @$sof = file_get_contents("data/sofs.txt");
-$channel = "@View1_panel";
+$channel = "@$ch";
+@$ch = file_get_contents("data/ch.txt");
 $on = file_get_contents("on.txt");
 #-------------------------
 if ($on == "off" && $from_id != "$ADMIN") {
@@ -380,9 +381,7 @@ Creator : `view team`",
 	SendMessage($chat_id,"🌹کاربرگرامی،
 برای حمایت از ما و بازشدن قفل ربات لطفا در کانال ما عضو شوید👇
 
-🆔 : @view1_panel
-
-🆔 : @CptnHack
+🆔 : @$ch
 
 🆔 : @Dandeeh5
 
@@ -402,7 +401,7 @@ Creator : `view team`",
 🤗 بلاخره انتظارها به پایان رسید! برای اولین بار درکل تلگرام
 😍 ربات ویو پنل 👇🏻
 
-🤖: http://telegram.me/View5_Panel_bot?start=$chat_id √";
+🤖: http://telegram.me/sharj_kadehbot?start=$chat_id √";
        bot('sendphoto',[
  'chat_id'=>$chat_id,
  'photo'=>new CURLFile('mem.jpg'),
@@ -667,7 +666,20 @@ elseif($text == "❇️روشن کردن" && $from_id == $ADMIN){
 file_put_contents("on.txt","on");
 SendMessage($chat_id,"🙃 ربات روشن شد",'HTML',$back_admin,$message_id);
 }
-
+elseif($text == 'تنظیم کانال' && $from_id == $ADMIN){
+file_put_contents("data/ch.txt", "channel");
+bot('sendMessage',[
+ 'chat_id'=>$chat_id,
+ 'text'=>"ایدی کانال را وارد کنید",
+ ]);
+}
+elseif($ch == 'channel' && $from_id == $ADMIN){
+file_put_contents("data/ch.txt", $text);
+bot('sendMessage',[
+ 'chat_id'=>$chat_id,
+ 'text'=>"تنظیم شد",
+ ]);
+}
 elseif($oghab == "coin to all"){
 if(preg_match('/^([0-9])/',$text)){
 file_put_contents("data/$from_id/wait.txt",$text);
