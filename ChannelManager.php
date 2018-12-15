@@ -1,6 +1,6 @@
 <?php /* Telegram : @Mosi_Dev */
 
-define('API_KEY','637271484:AAEv2GBi-vMLKDSw_mxJGbZIMi1K8xbvkSQ');
+define('API_KEY','[*[*TOKEN*]*]');
 
 function api($method,$datas=[]){
  $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -25,8 +25,8 @@ $booleans= explode("\n",$boolean);
 
 $channelusername = '@test_inbar';
 $channelnoa = 'test_inbar';
-$adminnoa = 'bogifa';
-$admin = 618055361;
+$adminnoa = 'DR_HESAM';
+$admin = [*[*ADMIN*]*];
 
 
 $button = array(
