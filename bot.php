@@ -1,6 +1,6 @@
 <?php
 ob_start();
-define('API_KEY','696023605:AAGnJUfkYfCAq9INuSdKkNqxFxVqWuSiNMA');//توکنتو بزارید
+define('API_KEY','[*[*TOKEN*]*]');//توکنتو بزارید
 //============= Functions ===============
 function bot($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -55,9 +55,9 @@ function save($filename, $data)
     fwrite($file, $data);
     fclose($file);
 }//============== keyboard ==============
-$Botid = 'free0netbot';//آیدی رباتتون
-$Channel = '@LINE_TM';//آیدی کانالتون
-$chid = "https://t.me/LINE_TM";//آیدی کانالتون
+$Botid = '[*[*idbot*]*]';//آیدی رباتتون
+$Channel = '$ch';//آیدی کانالتون
+$chid = "https://t.me/$ch";//آیدی کانالتون
 $menu = json_encode(['keyboard'=>[
 [['text'=>'راهنما و وضعیت من'],['text'=>'تعداد ممبر های من']],
 [['text'=>'لینک شخصی من']],
@@ -93,12 +93,13 @@ $from_id = $update->message->from->id;
 $text = $update->message->text;
 $from_first = $update->message->from->first_name;
 $message_id = $update->message->message_id;
+$ch = file_get_contents("data/ch.txt");
 $amir = file_get_contents("data/$from_id/amir.txt");
 $member = file_get_contents("data/$from_id/member.txt");
 $number = file_get_contents("data/$from_id/number.txt");
 $members = file_get_contents('Member.txt');
 $memlist = explode("\n", $members);
-$ADMIN = "550250019";//آیدی ادمین
+$ADMIN = "[*[*ADMIN*]*]";//آیدی ادمین
 $tch = bot('getChatMember',[
     'chat_id'=>$Channel,
     'user_id'=>$from_id
@@ -239,6 +240,20 @@ elseif($text == "امار" && $from_id == $ADMIN){
     $member_id = explode("\n",$user);
     $member_count = count($member_id) -1;
 	sendmessage($chat_id , " 📈آمار کاربران📊 : $member_count" , "html");
+} 
+elseif($text == 'تنظیم کانال' && $from_id == $ADMIN){
+file_put_contents("data/ch.txt", "channel");
+bot('sendMessage',[
+ 'chat_id'=>$chat_id,
+ 'text'=>"ایدی کانال را وارد کنید",
+ ]);
+}
+elseif($ch == 'channel' && $from_id == $ADMIN){
+file_put_contents("data/ch.txt", $text);
+bot('sendMessage',[
+ 'chat_id'=>$chat_id,
+ 'text'=>"تنظیم شد",
+ ]);
 }
 elseif($text == "ارسال همگانی🔄" && $chat_id == $ADMIN){
     file_put_contents("data/$from_id/amir.txt","send");
