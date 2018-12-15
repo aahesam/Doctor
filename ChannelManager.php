@@ -1,6 +1,6 @@
 <?php /* Telegram : @Mosi_Dev */
 
-define('API_KEY','[*[*TOKEN*]*]');
+define('API_KEY','[*[TOKEN]*]');
 
 function api($method,$datas=[]){
  $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -23,10 +23,10 @@ $message_id = $update->message->message_id;
 $boolean = file_get_contents('step.txt');
 $booleans= explode("\n",$boolean);
 
-$channelusername = '@test_inbar';
-$channelnoa = 'test_inbar';
+$channelusername = '$channel';
+$channelnoa = '$channel';
 $adminnoa = 'DR_HESAM';
-$admin = [*[*ADMIN*]*];
+$admin = [*[ADMIN]*];
 
 
 $button = array(
