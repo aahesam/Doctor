@@ -3,8 +3,8 @@
 //اوپن شده در رباتسازی ایلیاتیم
 ini_set('error_logs','off');
 #fill outs
-$token='694283011:AAGxADS3CuBzZZTU2UnrQ8mgyRL3HkFP3xI';
-$admin='760694996';
+$token='768152343:AAH3JLurn-DhQPZRv7YRTOSkluK6q8dgtzs';
+$admin='698038310';
 #defines
 define('API_KEY',$token);
 define('ADMIN',$admin);
