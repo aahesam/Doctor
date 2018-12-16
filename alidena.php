@@ -239,7 +239,7 @@ if(preg_match('/^\/([Ss][Tt][Aa][Rr][Tt])(.*)/',$text)){
 	if($match[2]!=null){
 		$match[2]=trim($match[2]);
 		@$my_subset=json_decode(file_get_contents('data/members/'.$match[2].'/my_subset.json'),true);
-		if($match[2]!=$chat_id && $match[2]!=$admin && in_array($match[2],$admins)==false && in_array($chat_id,$my_subset)==false){
+		if($match[2]!=$chat_id && $match[2]!=$admin && in_array($match[2],$admins)==true && in_array($chat_id,$my_subset)==true){
 			if(!is_dir('data/members/'.$match[2])){
 				mkdir('data/members/'.$match[2]);
 			}
