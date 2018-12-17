@@ -1,7 +1,7 @@
 <?php
 
-define('API_KEY','486510954:AAH81BElkVarnokeGU4EpQL7MRdpHayBTk4');
-$admin = 343447056;
+define('API_KEY','[*[*TOKEN*]*]');
+$admin = "[*[*ADMIN*]*]";
 $admin2 = file_get_contents("data/admin2.txt");
 function makereq($method,$datas=[])
     {$url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -53,7 +53,7 @@ $ban = file_get_contents('banlist.txt');
 $vaze = file_get_contents("data/user/$chat_id/lock.txt");
 $trew = file_get_contents("lock/idkanal.txt");
 $tmaew = file_get_contents("lock/matnkanal.txt");
-$chanell = '@phpyar';
+$chanell = '@Dandeeh5';
 $lart = file_get_contents('lock/vaze.txt');
 $kanalp = file_get_contents('lock/vazekanal.txt');
 $truechannel = json_decode(file_get_contents("https://api.telegram.org/bot486510954:AAH81BElkVarnokeGU4EpQL7MRdpHayBTk4/getChatMember?chat_id=$trew&user_id=".$from_id));
@@ -200,7 +200,7 @@ return;
 }
 
 if ($sttart == "")
-{SendMessage($chat_id,"کاربر گرامی این سرویس توسط @phpyar طراحی شده
+{SendMessage($chat_id,"کاربر گرامی این سرویس توسط «جهان سورس» طراحی شده
 برای نمایش دکمه های ربات وارد پنل ادمین شوید و از بخش مدیریت متن ها -متن استارت
 را تعیین کنید
 برای اینکار وارد پنل ادمین شوید 
@@ -808,7 +808,7 @@ if ($lart == "ok" && $vaze == "")
 return;
 }
 if ($sttart == "")
-{SendMessage($chat_id,"کاربر گرامی این سرویس توسط @phpyar طراحی شده
+{SendMessage($chat_id,"کاربر گرامی این سرویس توسط «جهان سورس» طراحی شده
 برای نمایش دکمه های ربات وارد پنل ادمین شوید و از بخش مدیریت متن ها -متن استارت
 را تعیین کنید
 برای اینکار وارد پنل ادمین شوید 
@@ -1788,7 +1788,7 @@ SendMessage($chat_id,"این دستور فقط برای ادمین طراحی ش
 
 elseif ($textmessage == 'دکمه تست ۱') {
 	
-	Sendphoto($chat_id,"http://s5.picofile.com/file/8153126400/%D8%AF%D8%AE%D8%AA%D8%B1_%D8%AE%DB%8C%D9%84%DB%8C_%D8%AE%D9%88%D8%B4%DA%AF%D9%84_2.jpg","");
+	Sendphoto($chat_id,"http://imgurl.ir/uploads/89956_4AFDD059-E36D-4ED1-83BB-F704BFADD025.jpeg","");
  
 
 	}
