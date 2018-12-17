@@ -4,7 +4,7 @@
 */
 ob_start();
 
-include();
+include("jdf.php");
 
 define('API_KEY','[*[*TOKEN*]*]');
 function bot($method,$datas=[]){
