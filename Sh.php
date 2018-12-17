@@ -59,7 +59,7 @@ $step = file_get_contents("step.txt");
 $chanell = '@Dandeeh5';
 @$lart = file_get_contents('lock/vaze.txt');
 @$kanalp = file_get_contents('lock/vazekanal.txt');
-$truechannel = json_decode(file_get_contents("https://api.telegram.org/bot486510954:AAH81BElkVarnokeGU4EpQL7MRdpHayBTk4/getChatMember?chat_id=$trew&user_id=".$from_id));
+$truechannel = json_decode(file_get_contents("https://api.telegram.org/bot'.API_KEY.'/getChatMember?chat_id=$trew&user_id=".$from_id));
 $tch = $truechannel->result->status;
 
 
