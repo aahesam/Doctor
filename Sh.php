@@ -37,6 +37,9 @@ function apiRequest($method, $parameters)
     }
 $update = json_decode(file_get_contents('php://input'));
 var_dump($update);
+mkdir = ("data");
+mkdir = ("btn");
+mkdir = ("lock");
 $chat_id = $update->message->chat->id;
 $mossage_id = $update->message->message_id;
 $from_id = $update->message->from->id;
@@ -45,17 +48,17 @@ $msg_id = $update->message->message_id;
 $name = $update->message->from->first_name;
 $username = $update->message->from->username;
 $textmessage = isset($update->message->text)?$update->message->text:'';
-$usm = file_get_contents("data/users.txt");
-$spep = file_get_contents("data/user/$chat_id/spep.txt");
+@$usm = file_get_contents("data/users.txt");
+@$spep = file_get_contents("data/user/$chat_id/spep.txt");
 $step = file_get_contents("step.txt");
-$members = file_get_contents('data/users.txt');
-$ban = file_get_contents('banlist.txt');
-$vaze = file_get_contents("data/user/$chat_id/lock.txt");
-$trew = file_get_contents("lock/idkanal.txt");
-$tmaew = file_get_contents("lock/matnkanal.txt");
+@$members = file_get_contents('data/users.txt');
+@$ban = file_get_contents('banlist.txt');
+@$vaze = file_get_contents("data/user/$chat_id/lock.txt");
+@$trew = file_get_contents("lock/idkanal.txt");
+@$tmaew = file_get_contents("lock/matnkanal.txt");
 $chanell = '@Dandeeh5';
-$lart = file_get_contents('lock/vaze.txt');
-$kanalp = file_get_contents('lock/vazekanal.txt');
+@$lart = file_get_contents('lock/vaze.txt');
+@$kanalp = file_get_contents('lock/vazekanal.txt');
 $truechannel = json_decode(file_get_contents("https://api.telegram.org/bot486510954:AAH81BElkVarnokeGU4EpQL7MRdpHayBTk4/getChatMember?chat_id=$trew&user_id=".$from_id));
 $tch = $truechannel->result->status;
 
