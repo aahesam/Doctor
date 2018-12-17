@@ -6,7 +6,7 @@ ob_start();
 
 include("jdf.php");
 
-define('API_KEY','[*[*TOKEN*]*]');
+define('API_KEY','637271484:AAEv2GBi-vMLKDSw_mxJGbZIMi1K8xbvkSQ');
 function bot($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
     $ch = curl_init();
@@ -65,7 +65,7 @@ $chat_id = $message->chat->id;
 $text = $message->text;
 mkdir("data/$chat_id");
 @$Mahdiphp = file_get_contents("data/$chat_id/Mahdi.txt");
-$admin = "[*[*ADMIN*]*]";//یوزر آیدی ادمین
+$admin = "698038310";//یوزر آیدی ادمین
 $time = jdate("h:i:s");
 $date = jdate("Y M d");
 $channel = file_get_contents("data/$chat_id/channel.txt");
