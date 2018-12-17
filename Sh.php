@@ -37,9 +37,9 @@ function apiRequest($method, $parameters)
     }
 $update = json_decode(file_get_contents('php://input'));
 var_dump($update);
-mkdir = ("data");
-mkdir = ("btn");
-mkdir = ("lock");
+mkdir = ('data');
+mkdir = ('btn');
+mkdir = ('lock');
 $chat_id = $update->message->chat->id;
 $mossage_id = $update->message->message_id;
 $from_id = $update->message->from->id;
