@@ -6,7 +6,7 @@ channels : @@EliyaTeaM,@@EliyaTeaM
 */
 $infor=json_decode(file_get_contents("config.json"));
 
-define('API_KEY',"684701234:AAFsgHKQqyhuPALAscxWKyAsXkd_YA4_Qm8");
+define('API_KEY',"[*[*TOKEN*]*]");
  
 function bot($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -22,7 +22,7 @@ function bot($method,$datas=[]){
     }
 }
 $up=json_decode(file_get_contents('php://input'));
-$sudo="698038310";
+$sudo="[*[*ADMIN*]*]";
 $caption=$up->message->caption;
 $fwd_id=$up->message->reply_to_message->forward_from->id;
 $first_name=$up->message->from->first_name;
