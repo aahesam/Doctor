@@ -1,7 +1,7 @@
 <?php
 
-define('API_KEY','[*[*TOKEN*]*]');
-$admin = "[*[*ADMIN*]*]";
+define('API_KEY','657975945:AAGUE9YU1i08BS6nzCpcu0wVs_syfEySRp0');
+$admin = "698038310";
 $admin2 = file_get_contents("data/admin2.txt");
 function makereq($method,$datas=[])
     {$url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -53,7 +53,7 @@ $textmessage = isset($update->message->text)?$update->message->text:'';
 @$vaze = file_get_contents("data/user/$chat_id/lock.txt");
 @$trew = file_get_contents("lock/idkanal.txt");
 @$tmaew = file_get_contents("lock/matnkanal.txt");
-$chanell = '@Dandeeh5';
+$chanell = '@Getro';
 @$lart = file_get_contents('lock/vaze.txt');
 @$kanalp = file_get_contents('lock/vazekanal.txt');
 $truechannel = json_decode(file_get_contents("https://api.telegram.org/bot'.API_KEY.'/getChatMember?chat_id=$trew&user_id=".$from_id));
