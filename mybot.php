@@ -8,7 +8,7 @@
 include("Telegram.php");
 
 // Set the bot TOKEN
-$bot_id = "Your_Token";
+$bot_id = "";
 
 // Instances the class
 $telegram = new Telegram($bot_id);
@@ -20,6 +20,12 @@ $text 			  = $telegram->Text();
 $chat_id 		  = $telegram->ChatID();
 $user_id 		  = $telegram->UserID();
 $message_id		  = $telegram->MessageID();
+
+$updates = $telegram->getData();
+$new_members = $updates['message']['new_chat_members'];
+$is_bot = $updates['message']['new_chat_members'];
+$content = ['chat_id' => $chat_id, 'user_id' => $user_id];
+$member_type = $telegram->getChatMember($content);
 
 $badWords = ['fuck','shit','bullshit']; // bad words array
 
@@ -60,3 +66,57 @@ if(strtolower($text)=='promote'){
 	$content = ['chat_id' => $chat_id, 'user_id' => $user_id, 'can_post_messages' => TRUE, 'can_edit_messages' => TRUE, 'can_delete_messages' => TRUE];
 	$telegram->promoteChatMember($content);
 }
+if(count($new_members) > 0){
+	
+	$mem_count = count($new_members);
+	
+	if($mem_count==1){
+		if($is_bot[0]['is_bot']){
+			$content = ['text' => 'Do Not Add Telegram bot AnyMore :|', 'reply_to_message_id' => $message_id, 'chat_id' => $chat_id];
+			$telegram->sendMessage($content);
+			
+			$bot_id = $new_members[0]['id'];
+			$content = ['chat_id' => $chat_id, 'user_id' => $bot_id];
+			$telegram->kickChatMember($content);			
+		}
+	}else{
+		
+		for($i=0; $i < $mem_count; $i++){
+			if($is_bot[$i]['is_bot']){
+				$content = ['text' => 'Do Not Add Telegram bot AnyMore :|', 'reply_to_message_id' => $message_id, 'chat_id' => $chat_id];
+				$telegram->sendMessage($content);
+				
+				$content = ['chat_id' => $chat_id, 'user_id' => $new_members[$i]['id']];
+				$telegram->kickChatMember($content);
+			}
+		}
+		
+	}
+	if(linkFinder($text)){ // remove Links
+	$content = array('chat_id' => $chat_id, 'message_id' => $message_id);
+	$telegram->deleteMessage($content);
+}
+
+function linkFinder($text){
+	$regex = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+	return preg_match($regex, $text);
+}
+}
+if(!empty($text)){
+	
+	// monshi
+	$pezeshkan = ['#قلب', '#داخلی', '#زنان', '#عمومی', '#پوست', '#عفونی', '#ارتوپد', '#ماما', '#کودکان', '#چشم', '#مغز', '#روانشناس','#ریه', '#پرستار', '#آزمایشگاه', '#عمومی', '#روانپزشک', '#اطفال','#پرستار','#عروق','#رادیولوژی','#سونو'];
+	$rend = rand(000,999);
+	$bwc = count($pezeshkan);
+	for($i=0; $i<$bwc; $i++){
+		if(strstr(strtolower($text),$pezeshkan[$i])){
+			$content = ['chat_id' => $chat_id, 'text'=>"نوبت شما زده شد $rand منتظر باشید پزشک مورد نظر آنلاین بشن و جواب شما داده شود", 'reply_to_message_id' => $message_id];
+			$telegram->sendmessage($content);
+			die(); // break code
+		}	
+	}
+	if(strstr($text,'منشی')){
+	$content = ['chat_id' => $chat_id, 'text' => 'منشی سوپر گروه دکتر آنلاین هستم لطفا برای پرسش سوال خود و دریافت نوبت از من سوال خود را در قالب یک متن با شرح حال کامل با مشخص نمودن حوزه سوال خود با هشتگ (#) مشخص فرمایید به طور مثال #قلب', 'reply_to_message_id' => $message_id];
+	$telegram->sendMessage($content);
+	die();
+	}	
