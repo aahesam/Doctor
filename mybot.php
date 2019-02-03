@@ -68,30 +68,24 @@ if(strtolower($text)=='promote'){
 }
 if(count($new_members) > 0){
 	
-	$mem_count = count($new_members);
-	
-	if($mem_count==1){
-		if($is_bot[0]['is_bot']){
-			$content = ['text' => 'Do Not Add Telegram bot AnyMore :|', 'reply_to_message_id' => $message_id, 'chat_id' => $chat_id];
-			$telegram->sendMessage($content);
-			
-			$bot_id = $new_members[0]['id'];
-			$content = ['chat_id' => $chat_id, 'user_id' => $bot_id];
-			$telegram->kickChatMember($content);			
-		}
-	}else{
+	for($i=0; $i<count($new_members); $i++){
+		$new_mem_user_id = $new_members[$i]["id"];
+		$new_mem_is_bot = $new_members[$i]["is_bot"];
 		
-		for($i=0; $i < $mem_count; $i++){
-			if($is_bot[$i]['is_bot']){
-				$content = ['text' => 'Do Not Add Telegram bot AnyMore :|', 'reply_to_message_id' => $message_id, 'chat_id' => $chat_id];
-				$telegram->sendMessage($content);
-				
-				$content = ['chat_id' => $chat_id, 'user_id' => $new_members[$i]['id']];
+		if($member_type['result']['status'] == 'member'){
+			// Ban Bot
+			if($new_mem_is_bot){
+				$content = ['chat_id' => $chat_id, 'user_id' => $new_mem_user_id];
 				$telegram->kickChatMember($content);
-			}
+
+				// Ban User Who Added Bot
+				$content = ['chat_id' => $chat_id, 'user_id' => $user_id];
+				$telegram->kickChatMember($content);			
+			}	
 		}
-		
 	}
+}
+
 	if(linkFinder($text)){ // remove Links
 	$content = array('chat_id' => $chat_id, 'message_id' => $message_id);
 	$telegram->deleteMessage($content);
