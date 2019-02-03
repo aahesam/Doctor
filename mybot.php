@@ -7,7 +7,7 @@
 include("Telegram.php");
 
 // Set the bot TOKEN
-$bot_id = "677714818:AAE1sv74nVKLrHkad61_RA3TpbuBCrm6o4w"; //deleteSpammerBot
+$bot_id = "633941167:AAGwM59WBIkvGypj7q71LLj1lnmPgRKKP3E"; //deleteSpammerBot
 
 // Instances the class
 $telegram = new Telegram($bot_id);
