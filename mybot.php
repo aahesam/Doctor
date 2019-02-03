@@ -115,6 +115,16 @@ if(!empty($text)){
 			die(); // break code
 		}	
 	}
+	$ghalb = ['#قلب'];
+	$rend = rand(000,999);
+	$bwc = count($ghalb);
+	for($i=0; $i<$bwc; $i++){
+		if(strstr(strtolower($text),$ghalb[$i])){
+			$content = ['chat_id' => $chat_id, 'text'=>"نوبت شما زده شد $rend منتظر باشید پزشک مورد نظر آنلاین بشن و جواب شما داده شود", 'reply_to_message_id' => $message_id];
+			$telegram->sendmessage($content);
+			die(); // break code
+		}	
+	}
 	if(strstr($text,'منشی')){
 	$content = ['chat_id' => $chat_id, 'text' => 'منشی سوپر گروه دکتر آنلاین هستم لطفا برای پرسش سوال خود و دریافت نوبت از من سوال خود را در قالب یک متن با شرح حال کامل با مشخص نمودن حوزه سوال خود با هشتگ (#) مشخص فرمایید به طور مثال #قلب', 'reply_to_message_id' => $message_id];
 	$telegram->sendMessage($content);
